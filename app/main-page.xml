@@ -1,0 +1,30 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:lv="nativescript-ui-listview" xmlns:Card="nativescript-cardview"  xmlns:VideoPlayer="nativescript-videoplayer" loaded="onNavigatingTo">
+<ActionBar>
+        <NavigationButton text="Back" visibility="collapsed" />
+        <ActionBar.actionItems>
+            <ActionItem position="left" icon="font://&#xf0a8;" class="fas" tap="goBack"/>
+            <ActionItem ios.position="right">
+                        <Button row="0" col="0" text="Theme"  />
+            </ActionItem>
+        </ActionBar.actionItems>
+    </ActionBar>
+<lv:RadListView items="{{videolListViewModel}}">
+<lv:RadListView.itemTemplate>
+<Card:CardView margin="6dp" elevation="15">
+<GridLayout rows="auto,auto,auto,auto,auto,auto,auto,auto" columns="*,auto,*" varticalAlignment="top" class="ca">
+<image id="nativeVideoPlayer"  stretch="aspectFill" colSpan="3" class="img"  aspectRatio="1.88" src="{{thumbnailUrl}}" tap="goToIframe" url="{{videoLink}}"  mobileUrlHd="{{mobileUrlHd}}"  mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" isLeads="{{isLeads}}" startTime="{{startTime}}"/>
+<Label text="&#xf01d;" class="icon"  horizontalAlignment="center" verticalAlignment="center" row="0" style.fontSize="48" colSpan="3" textWrap="true" tap="goToIframe" isLeads="{{isLeads}}" url="{{videoLink}}"  mobileUrlHd="{{mobileUrlHd}}"  mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" startTime="{{startTime}}"/>
+<label paddingRight="16dp" id="heading" paddingBottom="8dp" paddingLeft="16dp" paddingTop="16dp" style.color="#000000DE" style.fontSize="24" text="{{fileName}}" row="1" col="0" textWrap="true" colSpan="3" session_id="{{sessionId}}" fileName ="{{fileName}}" subject ="{{subject}}" description = "{{description}}" sessionId = "{{sessionId}}" thumbnailUrl="{{thumbnailUrl}}" video_id="{{id}}" url="{{videoLink}}"  mobileUrlHd="{{mobileUrlHd}}"  mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" startTime="{{startTime}}"/>
+<label paddingRight="16dp" paddingBottom="8dp" paddingLeft="16dp" style.color="#000000DE" text="{{description}}" row="2" col="0" colSpan="3"/>
+<label paddingRight="16dp" paddingLeft="16dp" paddingBottom="8dp" colSpan="3" style.color="#000000DE" text="{{ 'Cycle: ' + month + ' ' + year}}" row="3" textWrap="true" />
+<label paddingRight="16dp" paddingLeft="16dp" paddingBottom="8dp" colSpan="3" style.color="#000000DE" text="{{addedOn}}" row="4" col="0" textWrap="true"/>
+<label paddingRight="16dp" paddingLeft="16dp" paddingBottom="8dp" colSpan="3" style.color="#000000DE" text="{{'Track/Group: ' + track}}" visibility="{{track_status ? 'visible' : 'collapsed'}}" row="5" col="0" textWrap="true"/>
+<label paddingRight="16dp" paddingLeft="16dp" paddingBottom="8dp" colSpan="3" style.color="#000000DE" text="{{'Director : ' + facultyName}}" visibility="{{facultyName :'visible'}}"  row="6" col="0" textWrap="true"/>
+<button text="RECORDING &#xf2ce;" style.fontSize="15" row="8"  audioUrl="{{audioFile}}" audioId="{{sessionId}}" subject="{{subject}}" fileName="{{fileName}}" thumbnailUrl="{{thumbnailUrl}}" class="icon bot" tap="streamAudio" isLeads="{{isLeads}}" color="White"  visibility="{{ audioStreamVisibility : 'visible' }}"/>
+<button text="EXPLORE  &#xf0ea;" class="icon bot" style.fontSize="15" tap="viewDetail" row="8" col="1" color="White" session_id="{{sessionId}}" fileName ="{{fileName}}" subject ="{{subject}}" description = "{{description}}" sessionId = "{{sessionId}}" thumbnailUrl="{{thumbnailUrl}}" video_id="{{id}}" url="{{videoLink}}"  mobileUrlHd="{{mobileUrlHd}}"  mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" startTime="{{startTime}}" track="{{track}}"/>
+<button text="Download &#xf019;" class="icon bot" style.fontSize="15" row="8" col="2" color="White" tap="download" meetingKey="{{meetingKey}}" sessionId = "{{sessionId}}" url="{{videoLink}}"  mobileUrlHd="{{mobileUrlHd}}"  mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" audioUrl="{{audioFile}}" year = "{{year}}" month = "{{month}}" subject = "{{subject}}" fileName = "{{fileName}}"  keywords = "{{keywords}}" description = "{{description}}" errorMessage = "{{errorMessage}}" errorRecord = "{{errorRecord}}" addedOn = "{{addedOn}}"  videoLink = "{{videoLink}}" parentVideoId = "{{parentVideoId}}" thumbnailUrl = "{{thumbnailUrl}}" id = "{{id}}" createdDate = "{{createdDate}}" lastModifiedDate = "{{lastModifiedDate}}" createdBy = "{{}}" lastModifiedBy = "{{createdBy}}" startTime = "{{startTime}}" index = "{{index}}" startTime="{{startTime}}" mobileUrlHd="{{mobileUrlHd}}" mobileUrlSd1="{{mobileUrlSd1}}" mobileUrlSd2="{{mobileUrlSd2}}" fileName ="{{fileName}}" />
+</GridLayout>
+</Card:CardView> 
+</lv:RadListView.itemTemplate>
+</lv:RadListView>
+</Page>
